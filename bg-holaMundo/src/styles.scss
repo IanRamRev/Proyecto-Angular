@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+
+$rojo:rgb(247, 78, 48);
+$azul: blue;
+$verde: green;
+
+
+@mixin margenes($top, $bottom) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+.jumbotron{
+    background-color: $rojo;
+    color: white;
+    @include margenes(3.5em, 1em);
+    margin-top: 3.5em;
+}
+
+.carrusel{
+    margin: 1em 0 2em 0;
+}
+
+
+/* Cada item tenga un mismo comportamiento */
+/* Cuando se usa flex, no tiene sentido utilizar las clases de bootstrap para columnas*/
+.poke-card{
+    flex: 1 210px;
+    padding: 0 0 0 0;
+    margin: 1em 1em 1em 1em;
+}
+
+.poke-card .btn-reserva{
+    width: 100%;
+    /* Bordes redondos > 0*/
+    border-radius: 2px;
+}
+
+footer{
+    padding: 10px 10px 0 10px;
+    background-color: $rojo;
+    margin-bottom: 0px;
+    margin-top: 2rem;
+}
+
+.footer-icon{
+    padding-right: 7px;
+}
+
+.tab-content{
+    margin-top:1em;
+}
