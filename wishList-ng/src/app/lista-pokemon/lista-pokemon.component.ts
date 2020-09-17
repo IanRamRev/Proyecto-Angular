@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {selectPokemon} from './../models/SelectPokemon.model';
 
 @Component({
     selector: 'app-lista-pokemon',
@@ -6,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./lista-pokemon.component.css']
 })
 export class ListaPokemonComponent implements OnInit {
-    listaPokemones: string[];
+    listaPokemones: selectPokemon[];
     constructor() { 
-        this.listaPokemones = ['Pikachu', 'Furret', 'Eeve', 'Charizard'];
+        this.listaPokemones = [];
     }
 
     ngOnInit(): void {
+    }
+
+    guardar(nombre:string, url:string): boolean{
+        this.listaPokemones.push(new selectPokemon(nombre, url));
+        //console.log(this.listaPokemones);
+        return false; // Recarga página
     }
 
 }
