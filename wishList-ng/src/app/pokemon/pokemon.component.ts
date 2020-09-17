@@ -8,7 +8,7 @@ import {selectPokemon} from './../models/SelectPokemon.model';
 })
 export class PokemonComponent implements OnInit {
     @Input() pokemon: selectPokemon;
-    @HostBinding('attr.class') cssClass = 'col-md-4';
+    @HostBinding('attr.class') cssClass = 'col-md-4 elementoDesplegado';
     constructor() { 
     }
 
