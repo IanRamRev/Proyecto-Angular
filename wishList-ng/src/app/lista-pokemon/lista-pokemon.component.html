@@ -1,1 +1,49 @@
-<app-pokemon *ngFor= "let x of listaPokemones" [nombre]="x"></app-pokemon>
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="display-3"> Wish List Pokemones</h2>
+            <ul class="list-group list-style">
+                <app-pokemon class="list-group-item" *ngFor= "let x of listaPokemones" [nombre]="x"></app-pokemon>
+            </ul>
+        </div>
+    </div> 
+</div>
+
+
+
+<!-- 
+<div	class="container	content">
+    <div	class="row">
+        <div	class="col-md-6	offset-md-3">
+            <span	class="anchor"	id="formLogin"></span>
+             form	card	login	with	validation	feedback 
+            <div	class="card	card-outline-secondary">
+                <div	class="card-header">
+                    <h3	class="mb-0">Whishlist</h3>
+                </div>
+
+                <div	 class="card-body">
+                    <form>
+                        <div	class="form-group">
+                            <label	for="nombre">Nombre</label>
+                            <input	type="text"	class="form-control"	id="nombre"	placeholder="Ingresar nombre...">
+                        </div>
+                        <div	class="form-group">
+                            <label	for="Imagen	Url">Imagen	Url</label>
+                            <input	type="text"	class="form-control"	id="imagenUrl"	placeholder="Ingresa url...">
+                        </div>
+                        <button	type="submit"	class="btn	btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr	class="mb-5">
+
+    <div class="row">
+        <app-pokemon></app-pokemon>
+    </div>
+</div>
+-->

@@ -8,7 +8,7 @@ import { Component, OnInit, Input} from '@angular/core';
 export class PokemonComponent implements OnInit {
     @Input() nombre: string;
     constructor() { 
-        this.nombre = 'nombre por defecto';
+        this.nombre = 'Pikachu';
     }
 
     ngOnInit(): void {
