@@ -9,14 +9,25 @@
         <div class="card-img">
             <img src="https://vignette.wikia.nocookie.net/espokemon/images/7/77/Pikachu.png/revision/latest/scale-to-width-down/350?cb=20150621181250"	alt="pikachu">
             <span>
-                <h4>{{pokemon.nombre}}</h4>
+                <h4>{{indice}}</h4>
             </span>
         </div>
         
         <div class="card-desc">
             <h3>{{pokemon.imagenUrl}}</h3>
-                <p>Lorem	ipsum	dolor	sit	amet	consectetur,	adipisicing	elit.	Laboriosam,	voluptatum!	Dolor quo,	perspiciatis voluptas	totam</p>
-                <a href="#" class="btn-card">Read</a>	 		
+                <p>Ataques </p>
+                <ul>
+                    <li *ngFor="let a of pokemon.ataques"> 
+                        <span [ngSwitch]="a"> 
+                            <i *ngSwitchCase="'Impactrueno'" style="font-weight: bold;">{{a}}</i>
+                            <i *ngSwitchDefault> {{a}} </i>
+                        </span> 
+                    </li>
+                </ul>
+                <a href="#" class="btn-card" (click)="ir()">Ir!</a>	 		
+                <span *ngIf="pokemon.isSelected()"> 
+                    <span ngNonBindable> -Preferido- </span>
+                </span>
         </div>
     </div>
 

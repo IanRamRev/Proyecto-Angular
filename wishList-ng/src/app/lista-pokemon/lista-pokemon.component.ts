@@ -21,4 +21,9 @@ export class ListaPokemonComponent implements OnInit {
         return false; // Recarga página
     }
 
+    elegido(p: selectPokemon){
+        this.listaPokemones.forEach(function(x) {x.setSelected(false)});
+        p.setSelected(true);
+    }
+
 }

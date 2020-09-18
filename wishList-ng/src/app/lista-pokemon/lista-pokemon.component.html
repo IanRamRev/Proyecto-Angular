@@ -44,6 +44,11 @@
     <hr	class="mb-5">
 
     <div class="row row-flex">
-        <app-pokemon *ngFor="let p of listaPokemones" [pokemon]="p"></app-pokemon>
+        <app-pokemon 
+        *ngFor="let p of listaPokemones; let i=index" 
+        [pokemon]="p"
+        [indice]="i+1"
+        (clicked)="elegido($event)">
+    </app-pokemon>
     </div>
 </div>
