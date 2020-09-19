@@ -1,9 +1,19 @@
-<div class="container">
+<div class="container content">
+    <div class="page-header">
+        <div class="container">
+            <h1>Ruteo simple</h1>
+            <div class="navLinks">
+                <a [routerLink]="['/home']"> Home </a>
+                <a [routerLink]="['/pokemon']"> Pokemon </a>
+            </div>
+        </div>
+    </div>
+
     <div class="jumbotron">
         <h1 class="display-4">
             Wish List 1.0
         </h1>
-    </div>
+    </div>  
 
     <div class="row">
         <div class="col-md-12">
@@ -11,5 +21,8 @@
         </div>
     </div>
 
+    <router-outlet></router-outlet>
+    <!-- 
     <app-lista-pokemon></app-lista-pokemon>
+    -->
 </div>
