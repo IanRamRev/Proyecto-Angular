@@ -1,0 +1,23 @@
+<form
+    [formGroup]="fg"
+    (ngSubmit)="guardar(fg.controls['nombre'].value, fg.controls['url'].value)">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text"	class="form-control"	id="nombre"	placeholder="Ingresar nombre..." 
+            [formControl]="fg.controls['nombre']">  
+            <div *ngIf="!fg.controls['nombre'].valid"><p> Nombre invalido </p></div>
+            <div *ngIf="fg.controls['nombre'].hasError('required')">
+                <p> Nombre requerido! </p>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="Imagen	Url">Imagen	Url</label>
+        <input type="text" class="form-control" id="imagenUrl"	placeholder="Ingresa url..." 
+            [formControl]="fg.controls['url']">
+        <div *ngIf="fg.controls['url'].hasError('required')">
+            <p> URL requerido! </p>
+        </div>
+    </div>
+    <!-- Función definida en listapokemon ts -->
+    <button	type="submit" class="btn btn-primary" *ngIf="fg.valid">Guardar</button>
+</form> 

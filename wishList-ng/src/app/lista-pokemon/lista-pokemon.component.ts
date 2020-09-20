@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { PokemonApiClient } from './../models/poke-api-client.model';
 import {selectPokemon} from './../models/SelectPokemon.model';
 
 @Component({
@@ -7,23 +8,22 @@ import {selectPokemon} from './../models/SelectPokemon.model';
     styleUrls: ['./lista-pokemon.component.css']
 })
 export class ListaPokemonComponent implements OnInit {
-    listaPokemones: selectPokemon[];
-    constructor() { 
-        this.listaPokemones = [];
+    @Output() onItemAdded: EventEmitter<selectPokemon>;
+    constructor(public pokemonApiClient: PokemonApiClient) { 
+        this.onItemAdded = new EventEmitter();
     }
 
     ngOnInit(): void {
     }
 
-    guardar(nombre:string, url:string): boolean{
-        this.listaPokemones.push(new selectPokemon(nombre, url));
-        //console.log(this.listaPokemones);
-        return false; // Recarga página
+    agregado(p: selectPokemon){
+        this.pokemonApiClient.add(p);
+        this.onItemAdded.emit(p);
     }
 
-    elegido(p: selectPokemon){
-        this.listaPokemones.forEach(function(x) {x.setSelected(false)});
-        p.setSelected(true);
+    elegido(e: selectPokemon){
+        this.pokemonApiClient.getAll().forEach(x => x.setSelected(false));
+        e.setSelected(true);    
     }
 
 }

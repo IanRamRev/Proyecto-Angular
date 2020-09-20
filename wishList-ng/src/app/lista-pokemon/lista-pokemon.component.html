@@ -13,29 +13,19 @@
 
 
 
-<div	class="container	content">
-    <div	class="row">
-        <div	class="col-md-6	offset-md-3">
-            <span	class="anchor"	id="formLogin"></span>
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <span class="anchor" id="formLogin"></span>
             <!-- form	card	login	with	validation	feedback -->
-            <div	class="card	card-outline-secondary">
-                <div	class="card-header">
+            <div class="card	card-outline-secondary">
+                <div class="card-header">
                     <h3	class="mb-0">Whishlist</h3>
                 </div>
 
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text"	class="form-control"	id="nombre"	placeholder="Ingresar nombre..." #nombre>
-                        </div>
-                        <div class="form-group">
-                            <label for="Imagen	Url">Imagen	Url</label>
-                            <input type="text" class="form-control" id="imagenUrl"	placeholder="Ingresa url..." #url>
-                        </div>
-                        <!-- Función definida en listapokemon ts -->
-                        <button	type="submit" class="btn btn-primary" (click)="guardar(nombre.value, url.value)">Guardar</button>
-                    </form>
+                    <app-form-pokemon (onItemAdded)="agregado($event)">
+                    </app-form-pokemon>
                 </div>
             </div>
         </div>
@@ -45,7 +35,7 @@
 
     <div class="row row-flex">
         <app-pokemon 
-        *ngFor="let p of listaPokemones; let i=index" 
+        *ngFor="let p of pokemonApiClient.getAll(); let i=index" 
         [pokemon]="p"
         [indice]="i+1"
         (clicked)="elegido($event)">
