@@ -9,8 +9,16 @@ import {selectPokemon} from './../models/SelectPokemon.model';
 })
 export class ListaPokemonComponent implements OnInit {
     @Output() onItemAdded: EventEmitter<selectPokemon>;
+    updates: string[];
+
     constructor(public pokemonApiClient: PokemonApiClient) { 
         this.onItemAdded = new EventEmitter();
+        this.updates = [];
+        this.pokemonApiClient.subscribeOnChange((p:selectPokemon) => {
+            if(p != null){
+                this.updates.push('Se ha elegido a ' + p.nombre);
+            }
+        })
     }
 
     ngOnInit(): void {
@@ -22,8 +30,10 @@ export class ListaPokemonComponent implements OnInit {
     }
 
     elegido(e: selectPokemon){
+        /*
         this.pokemonApiClient.getAll().forEach(x => x.setSelected(false));
-        e.setSelected(true);    
+        e.setSelected(true);    */
+        this.pokemonApiClient.elegir(e);
     }
 
 }

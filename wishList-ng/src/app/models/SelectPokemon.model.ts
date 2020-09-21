@@ -1,6 +1,9 @@
+import { v4 as uuid } from 'uuid';
+
 export class selectPokemon{
     private selected: boolean;
     public ataques: string[];
+    id = uuid();
     // public en parámetro constructor reduce esto
     //nombre: string;
     // imagenUrl: string;

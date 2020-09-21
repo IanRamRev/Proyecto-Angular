@@ -39,6 +39,15 @@
         [pokemon]="p"
         [indice]="i+1"
         (clicked)="elegido($event)">
-    </app-pokemon>
+        </app-pokemon>
+    </div>
+
+    <hr	class="mb-5">
+
+    <div class="row row-flex">
+        <h4> Actividad </h4>
+        <ul>
+            <li *ngFor="let u of updates;"> {{u}} </li>
+        </ul>
     </div>
 </div>
